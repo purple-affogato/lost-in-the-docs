@@ -1,7 +1,7 @@
 import inquirer,re
 import inquirer.errors
-import wc2024.spiders.pandas_spider as pds
-import wc2024.spiders.python_docs_spider as pys
+import docs_scraper.spiders.pandas_spider as pds
+import docs_scraper.spiders.python_docs_spider as pys
 
 def main():
     questions = [inquirer.List(

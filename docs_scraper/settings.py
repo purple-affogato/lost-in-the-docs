@@ -1,4 +1,4 @@
-# Scrapy settings for wc2024 project
+# Scrapy settings
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -7,14 +7,14 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = "wc2024"
+BOT_NAME = "docs_scraper"
 
-SPIDER_MODULES = ["wc2024.spiders"]
-NEWSPIDER_MODULE = "wc2024.spiders"
+SPIDER_MODULES = ["docs_scraper.spiders"]
+NEWSPIDER_MODULE = "docs_scraper.spiders"
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = "wc2024 (+http://www.yourdomain.com)"
+#USER_AGENT = "docs_scraper (+http://www.yourdomain.com)"
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
