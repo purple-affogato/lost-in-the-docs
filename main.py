@@ -1,7 +1,7 @@
 import inquirer,re
-
 import inquirer.errors
 import wc2024.spiders.pandas_spider as pds
+import wc2024.spiders.python_docs_spider as pys
 
 def main():
     questions = [inquirer.List(
@@ -18,7 +18,7 @@ def main():
         case 'pandas':
             crawl_pandas(keywords)
         case 'python':
-            print("yet to be implemented")
+            crawl_python(keywords)
         case _:
             print("oops")
     
@@ -31,7 +31,10 @@ def validate_keywords(answers:dict, current:str) -> bool:
 def crawl_pandas(keywords:list):
     pds.keywords = keywords.copy()
     pds.crawl_process()
-    
+
+def crawl_python(keywords:list):
+    pys.keywords = keywords.copy()
+    pys.crawl_process()
 
 main()
     

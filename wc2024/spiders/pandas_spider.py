@@ -28,8 +28,8 @@ class PandasSpider(scrapy.Spider):
 
     def parse(self, response):
         rows = response.css('tr.row-odd, tr.row-even')
-        for t in rows:
-            link = t.css('a.reference.internal')
+        for r in rows:
+            link = r.css('a.reference.internal')
             title = link.css('span.pre::text').get()
             if title is None:
                 continue
@@ -52,10 +52,11 @@ class PandasSpider(scrapy.Spider):
 
 def crawl_process():
     base_url = "https://pandas.pydata.org/docs/reference/"
+    data_file = "pandas_data.json"
     process = CrawlerProcess(
         settings={
             "FEEDS": {
-                "pandas_data.json": {
+                data_file: {
                     "format": "json",
                     "overwrite": "True"
                 }
@@ -66,7 +67,7 @@ def crawl_process():
 
     process.crawl(PandasSpider)
     process.start()  # the script will block here until the crawling is finished
-    with open('pandas_data.json', 'r') as f:
+    with open(data_file, 'r') as f:
         data = json.load(f)
     if len(data) == 0:
         print("Nothing found.")
