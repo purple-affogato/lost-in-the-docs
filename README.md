@@ -1,3 +1,3 @@
-# wc2024
+# Lost in the Docs
 
-Small project for SCU ACM's Winter Challenge 2024.
+Small project that scraps different documentation for developers to find info faster. Made with Scrapy.
